@@ -1,0 +1,147 @@
+.container {
+  position: relative;
+}
+
+.actions {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  transition: background 150ms ease;
+}
+
+.actions:active {
+  background: #e3e3e3;
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  background-color: #ef4444; /* Bright Red */
+  border-radius: 50%;
+  border: 2px solid #ffffff; /* White ring contrast */
+  pointer-events: none;
+}
+
+.window.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.window {
+  position: absolute;
+  top: 58px;
+  left: -295px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 350px;
+  min-height: 521px;
+
+  background: #F5F5F5;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  z-index: 50;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+}
+
+.header {
+  width: 350px;
+  height: 41px;
+
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  border-radius: 12px 12px 0px 0px;
+
+  display: flex;
+  align-items: center;
+}
+
+.header>span {
+  margin: 0 0 0 17px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.body {
+  flex: 1;
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+
+  display: grid;
+  /* background: red; */
+  flex: 1;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.center > p {
+  font-size: 0.9rem;
+  user-select: none;
+  margin: 10px 0;
+}
+
+.footer {
+  width: 350px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  outline: 1px solid var(--border);
+  border-radius: 0px 0px 12px 12px;
+  /* border: none; */
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 250ms ease;
+
+  text-decoration: none;
+}
+
+.footer:hover {
+  color: var(--text);
+}
+
+.footer:focus-visible {
+  outline-color: #000;
+}
+
+@media (max-width: 575px) {
+  .window{
+    left: -200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    display: none;
+  }
+}

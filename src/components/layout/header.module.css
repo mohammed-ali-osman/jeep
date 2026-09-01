@@ -1,0 +1,389 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto;
+  grid-template-rows: 65px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  background-color: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  margin: 0 0 0 10px;
+  justify-self: left;
+}
+
+.menu {
+  width: 100%;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+
+  z-index: 100;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+}
+
+.list {
+  min-width: inherit;
+  box-sizing: border-box;
+  height: 208px;
+  list-style-type: none;
+  padding: 8px 0;
+  margin: 0;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: none;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.option {
+  max-width: 100%;
+
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+.selected {
+  background: #d6ebff;
+  font-weight: 600;
+  color: #61a9ca;
+  border-left: 2px solid #7cc6e9;
+}
+
+.selected:hover {
+  background: #c3e2ff
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.addressContainer {
+  margin: 0 20px 0 0;
+}
+
+.address {
+  width: 145px;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.address:active {
+  background: #e3e3e3;
+}
+
+.address>span {
+  overflow: hidden;
+  font-size: 0.85rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.langContainer {
+  margin: 0 0 0 20px;
+}
+
+.language {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 5px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  font-size: 0.85rem;
+}
+
+.language:active {
+  background: #e3e3e3;
+}
+
+.navigations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 0.5fr;
+  align-items: center;
+  justify-items: center;
+  width: 250px;
+}
+
+.actions {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+}
+
+.actions:active {
+  background: #e3e3e3;
+}
+
+.themeMenu {
+  position: absolute;
+  width: 115px;
+  height: 45px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 23px;
+  transform: translate(-42px, 8px);
+}
+
+.indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-hover, #f1f5f9);
+  /* Snappy spring curve */
+  transition: transform 180ms cubic-bezier(0.2, 1, 0.3, 1);
+  pointer-events: none;
+  /* Let clicks register on the button underneath */
+}
+
+.themeOption {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: inherit;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.address,
+.language,
+.actions {
+  transition: background 150ms ease;
+}
+
+.categories {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  padding: 10px 70px 10px 60px;
+  box-sizing: border-box;
+
+  background-color: #f9f9f9;
+  border-bottom: 1px solid var(--border);
+
+  overflow-x: auto;
+  white-space: nowrap;
+
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex-shrink: 0;
+
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #4b4b4b;
+
+  background: #f9f9f9;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.sidebar:hover,
+.category:hover {
+  background: #eaeaea;
+  color: #000;
+}
+
+.category:focus {
+  background: #eaeaea;
+  color: #000;
+}
+
+.cats {
+  position: relative;
+}
+
+.sidebar {
+  position: absolute;
+  /* bottom: 9.5px; */
+  /* left: 4px; */
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  width: 50px;
+  z-index: 1;
+
+  bottom: 1px;
+  left: 0px;
+  height: 47px;
+  box-shadow: #f9f9f9 9px 0px 8px -5px;
+  border-right: 1px solid var(--border);
+}
+
+.scrollBtn {
+  border: 1px solid;
+  position: absolute;
+  padding: 0;
+  border-radius: 15px;
+  width: 50px;
+  height: 30px;
+  background: #fff;
+  cursor: pointer;
+  top: 9px;
+  right: 15px;
+}
+
+@media (max-width: 1160px) {
+  .header {
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-rows: 65px 55px;
+  }
+
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .addressContainer {
+    margin: 0;
+    grid-column: 1;
+    grid-row: 2;
+
+    justify-self: left;
+  }
+
+  .langContainer {
+    grid-column: -2;
+    grid-row: 2;
+
+    justify-self: right;
+  }
+
+  .navigations {
+    justify-self: right;
+    margin: 0 0 0 20px;
+  }
+}
+
+@media (max-width: 945px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 65px 65px 55px;
+
+    position: relative
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    top: 130px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .addressContainer {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: left;
+  }
+
+  .langContainer {
+    grid-column: -2;
+    grid-row: 3;
+
+    justify-self: right;
+  }
+
+  .navigations {
+    gap: 8px;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .navigations {
+    grid-template-columns: repeat(2, 1fr) 0.5fr;
+  }
+}

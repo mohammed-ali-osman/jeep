@@ -30,6 +30,11 @@
 }
 
 body {
+  /* min-height: 600vh; */
+  height: auto;
   background-color: var(--bg);
   margin: 0;
+
+  display: flex;
+  flex-direction: column;
 }

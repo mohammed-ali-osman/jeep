@@ -16,10 +16,11 @@ const Inter = localFont({
    src: [
     {
       path: "./fonts/Inter-VariableFont_opsz,wght.ttf",
-      style: "normal",
+      // style: "normal",
       weight: "100 900",
     },
   ],
+  // weight: "100 900",
 });
 
 export default function RootLayout({

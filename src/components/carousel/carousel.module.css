@@ -1,0 +1,94 @@
+.carousel {
+    height: 350px;
+    display: grid;
+    place-items: center;
+}
+
+.pagination {
+    width: 115px;
+    align-self: flex-start;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    gap: 10px;
+}
+
+.controls button {
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    flex-shrink: 0;
+    border: 2px solid var(--border);
+    border-radius: 100%;
+    cursor: pointer;
+    transition: background 200ms ease;
+}
+
+.controls button:active {
+    background: var(--border);
+}
+
+.active {
+    background: var(--border);
+}
+
+.a {
+    animation: A 360ms linear;
+}
+
+.b {
+    animation: B 360ms linear;
+}
+
+.d {
+    animation: D 360ms linear;
+}
+
+.e {
+    animation: E 360ms linear;
+}
+
+@keyframes A {
+    0% {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes B {
+    0% {
+        transform: translateX(-25px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+
+@keyframes D {
+    0% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes E {
+    0% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}

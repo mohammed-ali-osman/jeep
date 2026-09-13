@@ -356,7 +356,7 @@ export default function Avatar() {
                     </button >
 
                     <div className={`${styles.empty} ${!isOpen ? styles.hidden : ""}`}>
-                        <Link href="/signin" className={styles.signin}>
+                        <Link href="/login" className={styles.signin}>
                             <span>Sign in</span>
                         </Link>
 

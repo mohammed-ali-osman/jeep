@@ -1,0 +1,46 @@
+.fieldset {
+    border: none;
+    margin: 0 0 12px 0;
+}
+
+.fieldset legend {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.label:hover {
+    border-color: #505050;
+}
+
+.label.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Hide the actual radio circle visually while keeping it accessible to screen readers */
+.hidden {
+    appearance: none;
+    position: absolute;
+}

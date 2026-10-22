@@ -1,7 +1,14 @@
+'use client';
 import Link from "next/link";
 import styles from "./login.module.css";
+import { useState, useEffect } from "react";
 
 export default function Login() {
+
+    const [show, setShow] = useState(false);
+    const [display, setDisplay] = useState(false);
+
+
     return (
         <main>
             <form className={styles.form}>
@@ -17,14 +24,60 @@ export default function Login() {
                 <div className={styles.fields}>
                     <div className={styles.group}>
                         <label htmlFor="email" className={styles.label}>Email</label>
-                        <input type="email" id="email" placeholder="Enter Your Email" className={styles.field} />
+                        <input
+                            type="email"
+                            id="email"
+                            name="username"
+                            autoComplete="username webauthn"
+                            placeholder="Enter Your Email"
+                            className={styles.field}
+                            required
+                        />
                     </div>
 
-                    <Link href="./forgot" className={styles.link}>Forgot Passoword</Link>
-
                     <div className={styles.group}>
-                        <label htmlFor="email" className={styles.label}>Passoword</label>
-                        <input type="password" id="email" placeholder="Enter Your Password" className={styles.field} />
+                        <div className={styles.labelWrapper}>
+                            <label htmlFor="password" className={styles.label}>Password</label>
+                            <Link href="./forgot" className={styles.link}>Forgot Password</Link>
+                        </div>
+
+                        <div className={styles.inputWrapper}>
+
+                            <input
+                                className={styles.field}
+                                type={show ? "text" : "password"}
+                                id="password"
+                                name="password"
+                                placeholder="Enter Your Password"
+                                onChange={(e) => {
+                                    if (e.target.value.length > 0) {
+                                        setDisplay(true);
+                                    } else {
+                                        setDisplay(false);
+                                    }
+                                }}
+                                autoComplete="current-password"
+                                required
+                            />
+
+                            <button
+                                className={display ? styles.toggle : styles.hide}
+                                onClick={(e) => {
+                                    setShow(prev => !prev);
+                                    e.preventDefault();
+                                }}
+                            >
+                                {show ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9.60997 9.60714C8.05503 10.4549 7 12.1043 7 14C7 16.7614 9.23858 19 12 19C13.8966 19 15.5466 17.944 16.3941 16.3878M21 14C21 9.02944 16.9706 5 12 5C11.5582 5 11.1238 5.03184 10.699 5.09334M3 14C3 11.0069 4.46104 8.35513 6.70883 6.71886M3 3L21 21" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none">
+                                        <path d="M3 14C3 9.02944 7.02944 5 12 5C16.9706 5 21 9.02944 21 14M17 14C17 16.7614 14.7614 19 12 19C9.23858 19 7 16.7614 7 14C7 11.2386 9.23858 9 12 9C14.7614 9 17 11.2386 17 14Z" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                )}
+                            </button>
+                        </div>
                     </div>
                     <button type="submit" className={styles.submit}>Log in</button>
                 </div>
@@ -166,6 +219,14 @@ export default function Login() {
                             <path d="M17.0409 17.0408H14.0776V12.4C14.0776 11.2934 14.0578 9.86879 12.5363 9.86879C10.9929 9.86879 10.7567 11.0745 10.7567 12.3194V17.0405H7.79336V7.49716H10.6382V8.80135H10.678C10.9627 8.31457 11.3741 7.91412 11.8684 7.64265C12.3627 7.37118 12.9214 7.23886 13.4849 7.25978C16.4884 7.25978 17.0422 9.23537 17.0422 11.8055L17.0409 17.0408ZM4.44969 6.19266C4.10957 6.19272 3.77706 6.09192 3.49422 5.90301C3.21139 5.7141 2.99094 5.44556 2.86073 5.13135C2.73051 4.81715 2.69638 4.47138 2.76268 4.13778C2.82897 3.80419 2.99271 3.49774 3.23317 3.25719C3.47363 3.01665 3.78002 2.85281 4.11359 2.78639C4.44716 2.71998 4.79293 2.75397 5.10719 2.88408C5.42144 3.01418 5.69006 3.23454 5.87907 3.51731C6.06808 3.80008 6.16901 4.13254 6.16907 4.47267C6.16911 4.6985 6.12466 4.92213 6.03827 5.13078C5.95189 5.33944 5.82527 5.52904 5.66561 5.68876C5.50595 5.84847 5.31638 5.97518 5.10775 6.06164C4.89913 6.1481 4.67552 6.19262 4.44969 6.19266ZM5.93137 17.0408H2.96491V7.49716H5.93137V17.0408ZM18.5183 0.00136259H1.47583C1.08901 -0.00300264 0.716265 0.146381 0.439533 0.416688C0.162802 0.686995 0.00472088 1.05611 0 1.44292V18.5561C0.00455931 18.9431 0.162547 19.3125 0.43927 19.5831C0.715992 19.8537 1.08882 20.0033 1.47583 19.9992H18.5183C18.9061 20.0041 19.28 19.8548 19.5578 19.5842C19.8356 19.3137 19.9946 18.9439 20 18.5561V1.44169C19.9945 1.05411 19.8353 0.684573 19.5575 0.414273C19.2797 0.143973 18.9059 -0.00498436 18.5183 0.000127347" fill="#0A66C2" />
                         </svg>
                     </button>
+
+                    <button
+                        type="button"
+                        className={styles.passkey}
+                        onClick={() => passkey()}
+                    >
+                        Login in with Passkey
+                    </button>
                 </div>
 
                 <div className={styles.footer}>
@@ -177,4 +238,25 @@ export default function Login() {
             </form>
         </main>
     )
+}
+
+async function passkey() {
+    const response = await fetch("/api/auth/passkeys");
+    const { challenge, rpId, timeout, userVerification } = await response.json();
+
+    try {
+        const credential = await navigator.credentials.get({
+            mediation: "optional",
+            publicKey: {
+                challenge: Uint8Array.from(atob(challenge.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0)),
+                rpId,
+                timeout,
+                userVerification
+            }
+        });
+    } catch (error) {
+        if (error instanceof DOMException && error.name === "NotAllowedError") {
+            console.log("The passkey operation was not allowed.");
+        }
+    }
 }

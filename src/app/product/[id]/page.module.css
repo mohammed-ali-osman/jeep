@@ -1,0 +1,140 @@
+.overview,
+.description,
+.reviews,
+.related-products {
+    min-height: 500px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 30px;
+}
+
+.overview h2,
+.description h2,
+.reviews h2,
+.related-products h2 {
+    margin: 0 0 20px;
+    user-select: none;
+}
+
+.overview {
+    display: flex;
+    gap: 30px;
+}
+
+.left {
+    box-sizing: border-box;
+    width: 60%;
+    height: 100%;
+    /* padding: 30px 0 30px 30px; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right {
+    width: 40%;
+    /* height: 100%; */
+    /* padding: 30px 30px 30px 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.purchase-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.purchase-actions button {
+    width: 100%;
+    font-weight: 600;
+    font-size: 1rem;
+    height: 45px;
+    border-radius: 6px;
+    transition: all 360ms ease;
+    cursor: pointer;
+}
+
+.purchase-actions button:nth-child(1) {
+    background-color: var(--accent);
+    color: #fff;
+    border: 2px solid var(--accent);
+}
+
+.purchase-actions button:nth-child(1):hover {
+    background-color: #f17579;
+    border: 2px solid var(--accent);
+}
+
+.purchase-actions button:nth-child(2) {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.purchase-actions button:nth-child(2):hover {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+}
+
+.utility-actions {
+    display: flex;
+}
+
+.utility-actions button {
+    flex: 1;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 360ms ease;
+    cursor: pointer;
+}
+
+.utility-actions button:nth-child(2) {
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: var(--border);
+    border-radius: 0;
+}
+
+.utility-actions button:hover {
+    background-color: #f1f1f1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header button {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.header button:hover {
+    background-color: #f1f1f1;
+}
+
+.description p {
+    color: var(--text);
+}

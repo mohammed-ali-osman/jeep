@@ -4,7 +4,7 @@ import styles from "./card.module.css";
 export default function Card() {
     return (
         <div className={styles.card}>
-            <Link href="/#" className={styles.link}>
+            <Link href="/product/abc" className={styles.link}>
                 <div className={styles.img}></div>
                 <div className={styles.body}>
                     <div className={styles.brand}>

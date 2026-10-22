@@ -1,0 +1,21 @@
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 20px;
+    gap: 8px;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    user-select: none;
+    transition: all 260ms ease ;
+}
+
+.link:hover{
+    color: var(--text-muted);
+    text-decoration: underline;
+}

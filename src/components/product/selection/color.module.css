@@ -1,0 +1,33 @@
+.fieldset {
+  border: none;
+  margin: 0 0 12px 0;
+}
+
+.fieldset legend {
+  font-size: 1rem;
+  font-weight: 7 00;
+  margin-bottom: 12px;
+}
+
+.colors {
+  display: flex;
+  gap: 12px;
+}
+
+.colors input {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.colors input.selected {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Make the white swatch visible against a white background. */
+.colors button[style*="#FFFFFF"] {
+  border-color: #d1d5db;
+}
